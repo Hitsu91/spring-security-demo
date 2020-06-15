@@ -7,16 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/accountmanager")
-public class AccountController {
-	
-	@GetMapping
-	public String get() {
-		return "<h1>Welcome account manager</h1>";
-	}
+@RequestMapping("secured")
+public class SecuredController {
 
-	@GetMapping("/detail")
-	public Utente test(@AuthenticationPrincipal Utente utente) {
-		return utente;
-	}
+    @GetMapping
+    public Utente detail(@AuthenticationPrincipal Utente utente) {
+        return utente;
+    }
 }
